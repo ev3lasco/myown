@@ -12,12 +12,9 @@ public class Customer {
     private Long id;
     private String first_name;
     private String last_name;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany
     @JoinColumn(name = "customer_id")
     private Set<Address> addresses;
-
-    public Customer() {
-    }
 
     public Customer(Long id, String first_name, String last_name, Set<Address> addresses) {
         this.id = id;

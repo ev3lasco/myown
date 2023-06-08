@@ -17,9 +17,20 @@ public class Address {
     private String state;
     private String zip;
 
-    // Constructors
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    // Getter and setter methods
+    public Address(Long id, String streetNumber, String streetName, String city, String state, String zip, Customer customer) {
+        this.id = id;
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.customer = customer;
+    }
+
     public Long getId() {
         return id;
     }
